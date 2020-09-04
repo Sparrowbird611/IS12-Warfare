@@ -1588,7 +1588,7 @@
 		if(org.is_dislocated()) //!org.is_usable() ||
 			status += "<span class='danger'>UNUSABLE</span>"
 		if(status.len)
-			msg += "<b>[capitalize(org.name)]:</b> [or_sign_list(status)]</div>\n"
+			msg += "<b>[capitalize(org.name)]:</b> [or_sign_list(status)]\n"
 		else
 			msg += "<b>[capitalize(org.name)]:</b> <span class='info'>OK</span>\n"
 
