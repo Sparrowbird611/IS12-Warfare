@@ -38,8 +38,3 @@
 
 /obj/item/weapon/card/id/shared/cargo
 	job_access_type = /datum/job/cargo_tech
-
-/obj/item/weapon/card/id/shared/arbiter
-	desc = "A card used by arbiters to get around."
-	icon_state = "id_arbiter"
-	job_access_type = /datum/job/arbiter

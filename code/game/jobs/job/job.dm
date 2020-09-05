@@ -43,8 +43,6 @@ GLOBAL_LIST_EMPTY(family_blacklist)
 	var/social_class = SOCIAL_CLASS_MED	 //Job's social standing.
 	var/has_email = FALSE 				 //Whether or not the job gets an email.
 
-	var/rp_objective = FALSE				 //Roleplay objectives. They aren't tracked but give people an idea of something they should or could be doing as this role. Set to false to disable them.
-	var/list/objective_list	= list()	 //Used by get_rp_objective()
 	var/child_role = FALSE				 //If set to true they will automatically spawn as a child.
 	var/no_late_join = FALSE			 //If set to true, the job will no longer be in the late join list.
 	var/late_join_only = FALSE			 //Can only late join. Is not a roundstart role.
