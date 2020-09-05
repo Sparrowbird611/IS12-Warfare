@@ -100,3 +100,8 @@
 /datum/achievement/flamer
 	name = "Lord of the Flame"
 	description = "It's time for you to burn down the trenches."
+
+/datum/achievement/headshot
+	name = "BOOM HEADSHOT"
+	difficulty = DIFF_MEDIUM
+	description = "In all likelyhood, they had a helmet, and you accomplished pretty much nothing."
