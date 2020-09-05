@@ -3,34 +3,28 @@ sudo: false
 dist: precise
 
 env:
-  global:
-    BYOND_MAJOR="511"
-    BYOND_MINOR="1385"
+    global:
+    - BYOND_MAJOR="513"
+    - BYOND_MINOR="1511"
+    - DM_BUILDFILE="IS12Warfare.dme"
+    - SPACEMAN_DMM_VERSION=suite-1.4
 
-# ALL MAPS MUST BE PRESENT HERE
-# IF THEY ARE NOT, YOUR BUILD WILL FAIL
-  matrix:
-    - TEST=CODE
-    - TEST=WEB
-    - TEST=MAP MAP_PATH=example
-    - TEST=MAP MAP_PATH=torch
-    - TEST=MAP MAP_PATH=overmap_example
-    - TEST=MAP MAP_PATH=away_sites_testing
-
-cache:
-  directories:
-    - tgui/node_modules
-    - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
-
-addons:
-  apt:
-    packages:
-      - libc6-i386
-      - libgcc1:i386
-      - libstdc++6:i386
-      - oracle-java8-set-default
-      - python
-      - python-pip
-
-script:
-  - test/run-test.sh
+matrix:
+  include:
+    - name: "Compile"
+      addons:
+        apt:
+          packages:
+            - libc6-i386
+            - libgcc1:i386
+            - libstdc++6:i386
+      cache:
+        directories:
+            - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
+      install:
+        - chmod +x ./install-byond.sh
+        - ./install-byond.sh
+      script:
+        - (! grep -rn 'step_[xy]' maps)
+        - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
+        - bash dm.sh ${DM_BUILDFILE}
